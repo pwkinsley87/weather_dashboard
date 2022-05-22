@@ -19,27 +19,28 @@ var formSubmitHandler = function (event) {
         // request was successful
         if (response.ok) {
           console.log(response)
-          response.json();
-        }
-      }).then(function (data) {
+          response.json().then(function(data) {          
           console.log(data);
-          displayCity(data);
-      })
-      .catch(function (error) {
-        alert('Unable to connect to weather. Is there any weather there? Maybe they have run out of weather.')
-      })
+          displayCity(data, city);
+      })} else { alert('Unable to connect to weather. Is there any weather there? Maybe they have run out of weather.')
+      }});
 
  var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=134a917d802ddc10f402d9450d227bd4'
 
- var displayCity = function (city) {
+ var displayCity = function (city, searchTerm) {
   // check if api returned any cities
   if (city.length === 0) {
     cityContainerEl.textContent = 'No data found.';
     return;
   } else { document.getElementById("btn").formTarget = "_self" }
 
-
   var searchTerm = document.querySelector(searchTerm.textContent);
+
+};
+var buttonClickHandler = function (event) {
+ event(preventDefault);
+ console.log(data);
+};
 
   // loop over cities
   for (var i = 0; i < city.length; i++) {
@@ -67,15 +68,6 @@ var formSubmitHandler = function (event) {
     // append container to the dom
     cityContainerEl.appendChild();
   }
-
- };
- var buttonClickHandler = function (event) {
-  event(preventDefault);
-  console.log(data);
- };
-
-
-
 }};
 
 citySearchFormEl.addEventListener("submit", formSubmitHandler);
