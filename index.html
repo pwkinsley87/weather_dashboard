@@ -6,12 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link href="./assets/style.css" rel="stylesheet">
     <title>Weather Dashboard</title>
 </head>
 
-<body>
-    <div id="root"></div>
-    <script src="./script/script.js"></script>
+<header>
+    <span>Weather Dashboard</span>
+</header>
+
+
+<body class="flex-column min-100-vh">
+    <header class="jumbotron">
+        <h1 class="app-title"><i class="fab fa-github"></i> Weather Dashboard</h1>
+        <p>Search for a city to see its current and future weather. 
+        </p>
+    </header>
+
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search By City</h3>
+            <form id="city-search-form" class="card-body">
+              <label class="form-label" for="city">City</label>
+              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search for weather</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-12 cold-md-8">
+            <h2 class="subtitle">Showing weather data for:<span id="city-input-El"></span></h2>
+            <div id="city container" class="list-group"></div>
+        </div>
+    </main>
+
 </body>
+
+<script src="./script/script.js"></script>
+
 </html>
