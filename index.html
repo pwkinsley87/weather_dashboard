@@ -19,8 +19,7 @@
 <body class="flex-column min-100-vh">
     <header class="jumbotron">
         <h1 class="app-title"><i class="fab fa-github"></i> Weather Dashboard</h1>
-        <p>Search for a city to see its current and future weather. 
-        </p>
+        <p>Search for a city to see its current and future weather. </p>
     </header>
 
     <main class="flex-row justify-space-between">
@@ -29,15 +28,15 @@
             <h3 class="card-header text-uppercase">Search By City</h3>
             <form id="city-search-form" class="card-body">
               <label class="form-label" for="city">City</label>
-              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+              <input name="input" id="city" type="text" autofocus="true" class="city-input" placeholder="Where to?" />
               <button type="submit" class="btn">Search for weather</button>
             </form>
           </div>
         </div>
 
         <div class="col-12 cold-md-8">
-            <h2 class="subtitle">Showing weather data for:<span id="city-input-El"></span></h2>
-            <div id="city container" class="list-group"></div>
+            <h2 class="subtitle">Showing weather data for:<span id="subtitle-span"></span></h2>
+            <div id="city-container" class="list-group"></div>
         </div>
     </main>
 
