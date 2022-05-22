@@ -8,52 +8,45 @@ var formSubmitHandler = function (event) {
   // prevent page from refreshing
   event.preventDefault();
   console.log(event);
+};
 
   // get value from input element
   var city = cityInputEl.value.trim();
 
-  if (city) {
+  var getCityData = function(city) {
+    // make a get request to url
+    fetch(apiUrl)
+      .then(function (response) {
+        // request was successful
+        if (response.ok) {
+          console.log(response)}
+          response.json().then(function (data) {
+            console.log(data);
+            display(data, city)});
+        //  })
+        // } else {
+        //  console.log(response);
+        //  alert('Error: City not found')
+        //}
+      }
+    .catch(function (error) {
+        alert('Unable to connect to weather. Is there any weather there? Maybe they have run out of weather.')
+      })
+    
+  
+    .if (city) {
     getCityData(city);
 
     // clear old content
-    cityContainerEl.textContent = '';
-    cityInputEl.value = '';
-  } else {
-    alert('Please enter a city');
+    cityContainerEl.textContent = '',
+    cityInputEl.value = '',
+  } .else {
+    alert('Please enter a city')
   }
-};
-
-  if (weather) {
-    getCityData(weather);
-
-    // clear old content
-    cityContainerEl.textContent = "";
-};
+  }
 
 
-var getCityData = function (city) {
-  // format the github api url
-  var apiUrl = 'api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=134a917d802ddc10f402d9450d227bd4'
-
-  // make a get request to url
-  fetch(apiUrl)
-    .then(function (response) {
-      // request was successful
-      if (response.ok) {
-        console.log(response);
-        response.json().then(function (data) {
-          console.log(data);
-          display(data, city);
-        });
-      } else {
-        console.log(response);
-        alert('Error: City not found');
-      }
-    })
-    .catch(function (error) {
-      alert('Unable to connect to weather. Is there any weather there? Maybe they have run out of weather.');
-    });
-};
+var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=134a917d802ddc10f402d9450d227bd4'
 
 var displayCity = function (city, searchTerm) {
   // check if api returned any repos
@@ -62,7 +55,7 @@ var displayCity = function (city, searchTerm) {
     return;
   }
 
-  cityInputEl.textContent = searchTerm;
+var searchTerm = document.querySelector(searchTerm.textContent);
 
   // loop over cities
   for (var i = 0; i < city.length; i++) {
