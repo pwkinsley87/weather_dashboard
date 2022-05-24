@@ -1,1 +1,4 @@
 # weather_dashboard
+The aim of this project was to catch and display data from a web-based weather API so that when a user enters a city name and clicks the 'Search' button, the current temperature in that city is displayed, along with the general weather conditions, the humidity, the wind speed and the dew point. When the user searches for a new city, each searched city will appear in a list below the input field. They will also be stored in local storage. There will be corresponding icons and colors for the weather conidtions and the UV conditions, respectively. I was able to accomplish none of this. I tried for many hours and had many chats with BCS but I could not get the data to display. 
+Here is the repo for the app: https://github.com/pwkinsley87/weather_dashboard
+And here is the deployed website: https://pwkinsley87.github.io/weather_dashboard/
